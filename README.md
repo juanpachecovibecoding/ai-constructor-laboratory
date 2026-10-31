@@ -1,6 +1,6 @@
 # Cloud Constructor
 
-Juego educativo interactivo sobre conceptos básicos de computación en la nube (Hour of Code).
+Juego educativo interactivo sobre conceptos básicos de computación en la nube desarrollado y personalizado por Play Code.
 
 ## 🚀 Despliegue
 

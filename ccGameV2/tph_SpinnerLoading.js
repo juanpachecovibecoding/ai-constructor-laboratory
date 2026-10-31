@@ -1,20 +1,3 @@
-// **********************************************************************************************************************
-//
-// Copyright (c)2011, YoYo Games Ltd. All Rights reserved.
-//
-// File:			SpinnerLoading.js
-// Created:			11/10/2011
-// Author:			Mike
-// Project:			HTML5
-// Description:		Loading bar using the free "spinner" class from http://fgnass.github.io/spin.js/
-//
-// Date				Version		BY		Comment
-// ----------------------------------------------------------------------------------------------------------------------
-// 02/09/2014		V1.0		MJD		1st version.
-//
-// **********************************************************************************************************************
-
-
 var g_SpinnerTarget = null;
 var g_pSpinnerObject = null
 
