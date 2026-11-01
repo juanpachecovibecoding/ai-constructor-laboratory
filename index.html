@@ -1,248 +1,383 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-    
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48756019-4"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-48756019-4');
       </script>
     
-        <link rel="icon" type="image/ico" href="favicon.ico">
+      <link rel="icon" type="image/ico" href="favicon.ico">
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta http-equiv="pragma" content="no-cache"/>
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="pragma" content="no-cache"/>
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta charset="utf-8"/>
 
-        <meta http-equiv="cache-control" content="max-age=0" />
-        <meta http-equiv="cache-control" content="no-cache" />
-        <meta http-equiv="expires" content="0" />
-        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-        <meta http-equiv="pragma" content="no-cache" />
+      <meta http-equiv="cache-control" content="max-age=0" />
+      <meta http-equiv="cache-control" content="no-cache" />
+      <meta http-equiv="expires" content="0" />
+      <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+      <meta http-equiv="pragma" content="no-cache" />
 
-        <!-- Meta description principal definida en SEO Schema.org -->
+      <title>AI Constructor Laboratory | Play Code</title>
 
-        <!-- Set the title bar of the page -->
-        <title>Cloud Constructor</title>
-
-        <!-- Set the background colour of the document -->
-        <style>
-            body {
-              background: #c0c0c0;
-              color:#cccccc;
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-              height: 100%;
-              width: 100%;
-              overflow: hidden;
-            }
-            .view {
-              width: 100%;
-              height: 100%;
-              overflow: hidden;
-            }
-            canvas {
-                      image-rendering: optimizeSpeed;
-                      -webkit-interpolation-mode: nearest-neighbor;
-                      -ms-touch-action: none;
-                      margin: 0px;
-                      padding: 0px;
-                      border: 0px;
-            }
-            :-webkit-full-screen #canvas {
-                 width: 100%;
-                 height: 100%;
-            }
-            div.gm4html5_div_class
-            {
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-            }
-            /* START - Login Dialog Box */
-            div.gm4html5_login
-            {
-                 padding: 20px;
-                 position: absolute;
-                 border: solid 2px #c0c0c0;
-                 background-color: #404040;
-                 color:#00ff00;
-                 border-radius: 15px;
-                 box-shadow: #c0c0c0 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button
-            {
-                 float: right;
-            }
-            div.gm4html5_login_button
-            {
-                 float: left;
-            }
-            div.gm4html5_login_header
-            {
-                 text-align: center;
-            }
-            /* END - Login Dialog Box */
-            :-webkit-full-screen {
-               width: 100%;
-               height: 100%;
-            }
-        </style>
       <!-- GOOGLE AI & GEO SCHEMA.ORG METADATA -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="description" content="Simulador 3D y entorno de construcción en la nube para educación STEAM desarrollado por Play Code.">
-  <meta property="og:title" content="Cloud Constructor 3D | Play Code">
-  <meta property="og:description" content="Simulador 3D y entorno de construcción en la nube para educación STEAM desarrollado por Play Code.">
-  <meta property="og:url" content="https://cloudconstructor.playcode.com.ar/">
-  <meta property="og:type" content="website">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Cloud Constructor 3D by Play Code",
-    "url": "https://cloudconstructor.playcode.com.ar/",
-    "applicationCategory": "EducationalApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript",
-    "description": "Simulador 3D y entorno de construcción en la nube para educación STEAM desarrollado por Play Code.",
-    "creator": {
-      "@type": "EducationalOrganization",
-      "name": "Play Code",
-      "url": "https://playcode.com.ar"
-    }
-  }
-  </script>
-  <style>
-    /* PLAY CODE INTRO / SPLASH SCREEN */
-    @keyframes pcPopIn {
-      0% { transform: scale(0.7); opacity: 0; filter: brightness(1.4); }
-      70% { transform: scale(1.04); opacity: 1; }
-      100% { transform: scale(1); opacity: 1; filter: brightness(1); }
-    }
-    @keyframes pcShimmer {
-      0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
-      40% { opacity: 0.5; }
-      100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
-    }
-    @keyframes pcFadeUp {
-      0% { transform: translateY(12px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes pcFill {
-      0% { width: 0%; }
-      100% { width: 100%; }
-    }
-    @keyframes pcPulse {
-      0%, 100% { box-shadow: 0 12px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 140, 0, 0.35); }
-      50% { box-shadow: 0 14px 45px rgba(0,0,0,0.7), 0 0 45px rgba(255, 140, 0, 0.65); }
-    }
-    .playcode-intro-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 999999;
-      background: radial-gradient(circle at center, #002D6B 0%, #001A3E 60%, #000F24 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      cursor: pointer;
-      transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    .playcode-intro-overlay.playcode-intro-hide {
-      opacity: 0 !important;
-      transform: scale(1.05) !important;
-      pointer-events: none !important;
-    }
-    .playcode-intro-logo-wrap {
-      position: relative;
-      width: 110px;
-      height: 110px;
-      border-radius: 26px;
-      overflow: hidden;
-      background: #00214E;
-      border: 2px solid rgba(255, 140, 0, 0.45);
-      animation: pcPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards, pcPulse 2s 0.5s infinite ease-in-out;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 140, 0, 0.35);
-    }
-    .playcode-intro-logo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      width: 60%;
-      height: 200%;
-      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-      animation: pcShimmer 1.8s 0.35s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .playcode-intro-logo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .playcode-intro-brand {
-      margin-top: 18px;
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      display: flex;
-      gap: 6px;
-      animation: pcFadeUp 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    .playcode-intro-brand .brand-play {
-      color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-    .playcode-intro-brand .brand-code {
-      color: #ff941a;
-      text-shadow: 0 0 15px rgba(255, 148, 26, 0.6);
-    }
-    .playcode-intro-tagline {
-      margin-top: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      color: rgba(255, 255, 255, 0.75);
-      text-transform: uppercase;
-      animation: pcFadeUp 0.6s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    .playcode-intro-loader {
-      margin-top: 22px;
-      width: 120px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .playcode-intro-progress {
-      height: 100%;
-      background: linear-gradient(90deg, #ff6a00, #ffb319);
-      border-radius: 99px;
-      box-shadow: 0 0 10px #ff941a;
-      animation: pcFill 1.4s 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-    .playcode-intro-skip {
-      position: absolute;
-      bottom: 24px;
-      font-size: 11px;
-      letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.4);
-      text-transform: uppercase;
-    }
-  </style>
-</head>
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+      <meta name="description" content="Simulador interactivo y laboratorio de inteligencia artificial para educación STEAM desarrollado por Play Code. Diseña clústeres GPU, memoria VRAM y bases vectoriales RAG.">
+      <meta property="og:title" content="AI Constructor Laboratory | Play Code">
+      <meta property="og:description" content="Simulador interactivo de infraestructura de Inteligencia Artificial para educación STEAM desarrollado por Play Code.">
+      <meta property="og:url" content="https://ai-constructor-laboratory.playcode.com.ar/">
+      <meta property="og:type" content="website">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "AI Constructor Laboratory by Play Code",
+        "url": "https://ai-constructor-laboratory.playcode.com.ar/",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "description": "Simulador interactivo y laboratorio de infraestructura de IA para educación STEAM desarrollado por Play Code.",
+        "creator": {
+          "@type": "EducationalOrganization",
+          "name": "Play Code",
+          "url": "https://playcode.com.ar"
+        }
+      }
+      </script>
+
+      <style>
+        body {
+          background: #06152b;
+          color: #cccccc;
+          margin: 0px;
+          padding: 0px;
+          border: 0px;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .view {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        canvas {
+          image-rendering: optimizeSpeed;
+          -webkit-interpolation-mode: nearest-neighbor;
+          -ms-touch-action: none;
+          margin: 0px;
+          padding: 0px;
+          border: 0px;
+        }
+        div.gm4html5_div_class {
+          margin: 0px;
+          padding: 0px;
+          border: 0px;
+        }
+
+        /* PLAY CODE INTRO / SPLASH SCREEN */
+        @keyframes pcPopIn {
+          0% { transform: scale(0.7); opacity: 0; filter: brightness(1.4); }
+          70% { transform: scale(1.04); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+        }
+        @keyframes pcShimmer {
+          0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
+          40% { opacity: 0.5; }
+          100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+        }
+        @keyframes pcFadeUp {
+          0% { transform: translateY(12px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes pcFill {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        @keyframes pcPulse {
+          0%, 100% { box-shadow: 0 12px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 140, 0, 0.35); }
+          50% { box-shadow: 0 14px 45px rgba(0,0,0,0.7), 0 0 45px rgba(255, 140, 0, 0.65); }
+        }
+        .playcode-intro-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 999999;
+          background: radial-gradient(circle at center, #002D6B 0%, #001A3E 60%, #000F24 100%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          cursor: pointer;
+          transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .playcode-intro-overlay.playcode-intro-hide {
+          opacity: 0 !important;
+          transform: scale(1.05) !important;
+          pointer-events: none !important;
+        }
+        .playcode-intro-logo-wrap {
+          position: relative;
+          width: 110px;
+          height: 110px;
+          border-radius: 26px;
+          overflow: hidden;
+          background: #00214E;
+          border: 2px solid rgba(255, 140, 0, 0.45);
+          animation: pcPopIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards, pcPulse 2s 0.5s infinite ease-in-out;
+          box-shadow: 0 12px 35px rgba(0,0,0,0.6), 0 0 25px rgba(255, 140, 0, 0.35);
+        }
+        .playcode-intro-logo-wrap::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          width: 60%;
+          height: 200%;
+          background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+          animation: pcShimmer 1.8s 0.35s ease-in-out infinite;
+          pointer-events: none;
+        }
+        .playcode-intro-logo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .playcode-intro-brand {
+          margin-top: 18px;
+          font-size: 28px;
+          font-weight: 800;
+          letter-spacing: 4px;
+          display: flex;
+          gap: 6px;
+          animation: pcFadeUp 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .playcode-intro-brand .brand-play {
+          color: #ffffff;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .playcode-intro-brand .brand-code {
+          color: #ff941a;
+          text-shadow: 0 0 15px rgba(255, 148, 26, 0.6);
+        }
+        .playcode-intro-tagline {
+          margin-top: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          color: rgba(255, 255, 255, 0.75);
+          text-transform: uppercase;
+          animation: pcFadeUp 0.6s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .playcode-intro-loader {
+          margin-top: 22px;
+          width: 120px;
+          height: 4px;
+          background: rgba(255, 255, 255, 0.15);
+          border-radius: 99px;
+          overflow: hidden;
+        }
+        .playcode-intro-progress {
+          height: 100%;
+          background: linear-gradient(90deg, #ff6a00, #ffb319);
+          border-radius: 99px;
+          box-shadow: 0 0 10px #ff941a;
+          animation: pcFill 1.4s 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .playcode-intro-skip {
+          position: absolute;
+          bottom: 24px;
+          font-size: 11px;
+          letter-spacing: 1px;
+          color: rgba(255, 255, 255, 0.4);
+          text-transform: uppercase;
+        }
+
+        /* ================= ASISTENTE '?' (EXPLICACIÓN PARA CHICOS) ================= */
+        .ai-guide-container {
+          position: fixed;
+          bottom: 18px;
+          left: 18px;
+          z-index: 88888;
+          user-select: none;
+          -webkit-user-select: none;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        .ai-guide-badge {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background: rgba(0, 33, 78, 0.92);
+          border: 2px solid #ff941a;
+          padding: 7px 15px 7px 8px;
+          border-radius: 999px;
+          color: #ffffff;
+          cursor: pointer;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 16px rgba(255, 148, 26, 0.4);
+          transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+        }
+        .ai-guide-badge:hover, .ai-guide-badge.active {
+          transform: translateY(-2px) scale(1.03);
+          background: rgba(0, 45, 107, 0.98);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 148, 26, 0.65);
+        }
+        .ai-guide-badge .q-icon {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #ff6a00, #ffb319);
+          color: #001333;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 900;
+          font-size: 17px;
+          box-shadow: 0 2px 8px rgba(255, 106, 0, 0.5);
+        }
+        .ai-guide-badge .badge-label {
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.3px;
+          color: #f1f5f9;
+        }
+
+        /* CARD POPUP */
+        .ai-guide-card {
+          position: absolute;
+          bottom: 54px;
+          left: 0;
+          width: 350px;
+          max-width: calc(100vw - 36px);
+          max-height: 70vh;
+          overflow-y: auto;
+          background: rgba(2, 18, 42, 0.96);
+          border: 2px solid #38bdf8;
+          border-radius: 18px;
+          box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.25);
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          padding: 18px;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(12px) scale(0.95);
+          transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          scrollbar-width: thin;
+          scrollbar-color: #ff941a rgba(255, 255, 255, 0.1);
+        }
+        .ai-guide-card::-webkit-scrollbar {
+          width: 6px;
+        }
+        .ai-guide-card::-webkit-scrollbar-thumb {
+          background: #ff941a;
+          border-radius: 99px;
+        }
+        .ai-guide-container:hover .ai-guide-card,
+        .ai-guide-card.is-open {
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0) scale(1);
+        }
+
+        .ai-guide-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+          padding-bottom: 10px;
+          margin-bottom: 12px;
+        }
+        .ai-guide-header h3 {
+          margin: 0;
+          font-size: 15px;
+          font-weight: 800;
+          color: #ff941a;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .ai-guide-close {
+          background: transparent;
+          border: none;
+          color: #94a3b8;
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+          padding: 2px 6px;
+          border-radius: 6px;
+          transition: color 0.15s, background 0.15s;
+        }
+        .ai-guide-close:hover {
+          color: #ffffff;
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-level-box {
+          background: rgba(0, 45, 107, 0.45);
+          border-left: 3px solid #ff941a;
+          padding: 10px 12px;
+          border-radius: 0 10px 10px 0;
+          margin-bottom: 14px;
+        }
+        .ai-level-title {
+          font-size: 13px;
+          font-weight: 800;
+          color: #38bdf8;
+          margin-bottom: 4px;
+        }
+        .ai-level-analogy {
+          font-size: 12.5px;
+          line-height: 1.45;
+          color: #e2e8f0;
+        }
+
+        .ai-dict-title {
+          font-size: 12px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: #94a3b8;
+          margin-top: 10px;
+          margin-bottom: 8px;
+        }
+        .ai-dict-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .ai-dict-item {
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 8px;
+          padding: 8px 10px;
+        }
+        .ai-dict-term {
+          font-size: 12px;
+          font-weight: 700;
+          color: #facc15;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .ai-dict-desc {
+          font-size: 11.5px;
+          color: #cbd5e1;
+          margin-top: 3px;
+          line-height: 1.4;
+        }
+      </style>
+    </head>
 
     <body>
       <!-- ============ PLAY CODE INTRO / SPLASH SCREEN ============ -->
@@ -253,7 +388,7 @@
         <div class="playcode-intro-brand">
           <span class="brand-play">PLAY</span><span class="brand-code">CODE</span>
         </div>
-        <div class="playcode-intro-tagline">Aprende · Juega · Crea</div>
+        <div class="playcode-intro-tagline">AI Constructor Laboratory</div>
         <div class="playcode-intro-loader">
           <div class="playcode-intro-progress"></div>
         </div>
@@ -278,17 +413,166 @@
           setTimeout(dismiss, 1900);
         })();
       </script>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="720" height="720"  style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);" >
-                     <p>¡Aprende los conceptos básicos de la computación en la nube con Cloud Constructor! Si el juego no carga, es posible que tu navegador no admita canvas HTML5.</p>
-            </canvas>
+
+      <!-- ============ GAME CANVAS ============ -->
+      <div class="gm4html5_div_class" id="gm4html5_div_id">
+          <canvas id="canvas" width="720" height="720" style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
+              <p>¡Bienvenido a AI Constructor Laboratory! Si el simulador no carga, asegúrate de activar JavaScript en tu navegador.</p>
+          </canvas>
+      </div>
+
+      <!-- ============ ASISTENTE '?' FLOTANTE (EXPLICACIÓN PARA CHICOS) ============ -->
+      <div id="ai-guide-container" class="ai-guide-container">
+        <div id="ai-guide-card" class="ai-guide-card">
+          <div class="ai-guide-header">
+            <h3><span>💡</span> Guía del Laboratorio IA</h3>
+            <button id="ai-guide-close" class="ai-guide-close" title="Cerrar">✕</button>
+          </div>
+
+          <div id="ai-level-info" class="ai-level-box">
+            <div id="ai-level-name" class="ai-level-title">Nivel Actual: Cargando...</div>
+            <div id="ai-level-analogy" class="ai-level-analogy">
+              Conecta usuarios y crea nodos de cómputo para alimentar la inteligencia artificial.
+            </div>
+          </div>
+
+          <div class="ai-dict-title">Diccionario Fácil de IA</div>
+          <div class="ai-dict-grid">
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">💬 Prompt / Petición</div>
+              <div class="ai-dict-desc">Es la pregunta, foto o texto que el usuario envía a la IA para que la resuelva.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">🧠 Nodo IA (Servidor)</div>
+              <div class="ai-dict-desc">Es el cerebro robot. Recibe el prompt, piensa la respuesta y se la manda de vuelta al usuario.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">⚡ Acelerador GPU (GHz)</div>
+              <div class="ai-dict-desc">Son las zapatillas turbo del robot: mientras más GHz tenga, más rápido piensa y responde.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">🎒 Memoria VRAM</div>
+              <div class="ai-dict-desc">Es la mochila del robot: le permite guardar modelos de texto, imágenes y video al mismo tiempo.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">🌐 Canales API</div>
+              <div class="ai-dict-desc">Son los teléfonos del nodo: determinan a cuántos amigos puede atender en simultáneo sin hacer fila.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">📚 Base Vectorial (RAG)</div>
+              <div class="ai-dict-desc">Una súper biblioteca donde la IA busca datos reales para responder con precisión y sin inventar.</div>
+            </div>
+            <div class="ai-dict-item">
+              <div class="ai-dict-term">❄️ Kit de Enfriamiento</div>
+              <div class="ai-dict-desc">Pensar intensamente calienta las GPUs. ¡Úsalo cuando el nodo esté naranja antes de que falle!</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Run the game code -->
-        <script type="text/javascript" src="ccGameV2/CloudConstructor.js?FGDSJAI=523467234"></script>
-        <script>window.onload = GameMaker_Init;</script>
-        
+        <div id="ai-guide-btn" class="ai-guide-badge" title="Pasa el mouse o toca para ver la explicación para chicos">
+          <div class="q-icon">?</div>
+          <div class="badge-label">Explicación para Chicos</div>
+        </div>
+      </div>
+
+      <!-- Script del asistente interactivo '?' -->
+      <script>
+        (function() {
+          var container = document.getElementById('ai-guide-container');
+          var btn = document.getElementById('ai-guide-btn');
+          var card = document.getElementById('ai-guide-card');
+          var closeBtn = document.getElementById('ai-guide-close');
+          var levelNameEl = document.getElementById('ai-level-name');
+          var analogyEl = document.getElementById('ai-level-analogy');
+
+          var levelAnalogies = {
+            0: {
+              name: 'Nivel 0: Tu Primer Nodo IA',
+              text: 'Imagina que instalas tu primer "robot cocinero". Sin él, nadie puede comer. ¡Arrastra el nodo al laboratorio!'
+            },
+            1: {
+              name: 'Nivel 1: Prompts e Inferencia',
+              text: 'Un usuario tiene una pregunta (prompt). ¡Conéctalo con el cable al robot para que piense y le entregue su respuesta!'
+            },
+            2: {
+              name: 'Nivel 2: Clúster IA (Escala Horizontal)',
+              text: 'Cocinar fotos y videos tarda más. Para que no haya fila, ¡ponemos a dos robots cocineros a trabajar juntos!'
+            },
+            3: {
+              name: 'Nivel 3: Potencia GPU y VRAM (Escala Vertical)',
+              text: 'Le damos al robot una mochila más grande (VRAM) y zapatillas turbo (GPU) para que piense al doble de velocidad.'
+            },
+            4: {
+              name: 'Nivel 4: Replicación de Modelos',
+              text: 'Fotocopiamos el libro de recetas en dos robots distintos. Si a uno se le gasta la batería, ¡el otro sigue cocinando!'
+            },
+            5: {
+              name: 'Nivel 5: Tolerancia a Fallos Térmicos',
+              text: '¡Pensar mucho da calor! Si el robot se pone naranja por fiebre, necesita un Kit de Enfriamiento para no romperse.'
+            },
+            6: {
+              name: 'Nivel 6: Procesamiento en Paralelo',
+              text: 'Le damos más manos y teléfonos (Canales API) al robot para que pueda hablar con muchos amigos al mismo tiempo.'
+            },
+            7: {
+              name: 'Nivel 7: Balanceo de Carga IA',
+              text: 'Repartimos la fila entre varios robots medianos para que ninguno se canse de más y nadie espere.'
+            },
+            8: {
+              name: 'Nivel 8: Base Vectorial (RAG)',
+              text: 'Construimos una biblioteca gigante donde el robot busca libros de datos para responder con sabiduría.'
+            },
+            9: {
+              name: 'Nivel 9: Router de Modelos (Gateway)',
+              text: 'Un director de tránsito súper rápido que recibe a miles de personas y les entrega el modelo que necesitan.'
+            }
+          };
+
+          function updateLevelGuide() {
+            var state = window.__aiLabState;
+            if (!state) return;
+
+            var lvl = state.level;
+            if (lvl >= 100) {
+              levelNameEl.textContent = 'Modo SIN FIN (Nivel ' + (lvl - 100 + 1) + ')';
+              analogyEl.textContent = '¡El laboratorio está en máxima potencia! Monitorea la temperatura, agrega VRAM y atiende a todos los usuarios.';
+            } else if (levelAnalogies[lvl]) {
+              levelNameEl.textContent = levelAnalogies[lvl].name;
+              analogyEl.textContent = levelAnalogies[lvl].text;
+            } else if (state.levelName) {
+              levelNameEl.textContent = state.levelName;
+              analogyEl.textContent = state.instruction || '¡Conecta los componentes y ayuda a los usuarios!';
+            }
+          }
+
+          setInterval(updateLevelGuide, 800);
+
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            card.classList.toggle('is-open');
+            btn.classList.toggle('active');
+            updateLevelGuide();
+          });
+
+          closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            card.classList.remove('is-open');
+            btn.classList.remove('active');
+          });
+
+          document.addEventListener('click', function(e) {
+            if (!container.contains(e.target)) {
+              card.classList.remove('is-open');
+              btn.classList.remove('active');
+            }
+          });
+        })();
+      </script>
+
+      <!-- Run the game code -->
+      <script type="text/javascript" src="ccGameV2/CloudConstructor.js?v=ailab_1.0"></script>
+      <script>window.onload = GameMaker_Init;</script>
+      
       <script src="https://edu.playcode.com.ar/wp-content/plugins/playcode-domain-analytics/tracker.js" async></script>
 </body>
 </html>
